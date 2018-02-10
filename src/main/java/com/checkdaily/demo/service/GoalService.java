@@ -19,7 +19,6 @@ public class GoalService {
     private GoalRepository repository;
 
     public Goal createGoal(Goal GoalMap) {
-        var
         Goal goal = new Goal(GoalMap.getName(),GoalMap.getStartTime(), GoalMap.getEndTime(), GoalMap.getTaskList());
         ArrayList<Task> taskList = GoalMap.getTaskList();
 
@@ -27,7 +26,7 @@ public class GoalService {
             Task task = taskList.get(i);
 
             System.out.println("taskName----------"+ task.getName());
-            System.out.println("taskPeriod----------"+ task.getPeriod());
+            System.out.println("taskName----------"+ task.getName());
 
         }
         repository.insert(goal);
