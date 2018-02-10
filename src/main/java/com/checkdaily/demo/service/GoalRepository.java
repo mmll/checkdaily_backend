@@ -6,6 +6,6 @@ import com.checkdaily.demo.entity.Goal;
 
 public interface GoalRepository extends MongoRepository<Goal, String> {
     Goal findByName(String name);
-    List<Goal> findByPeriod(String period);
+//    List<Goal> findByPeriod(String period);
 }
 
