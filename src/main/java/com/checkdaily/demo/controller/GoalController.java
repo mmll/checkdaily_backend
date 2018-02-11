@@ -21,8 +21,6 @@ public class GoalController {
 
     @RequestMapping(method = RequestMethod.POST)
     public Map<String, Object> createGoal(@RequestBody Goal goalInput){
-        logger.info("createGoal----------"+ goalInput.toString());
-        logger.info("taskList----------"+ goalInput.getTaskList());
         Goal goal = goalService.createGoal(goalInput);
         Map<String, Object> response = new LinkedHashMap<String, Object>();
         response.put("message", "Goal created successfully");
@@ -30,11 +28,11 @@ public class GoalController {
         return response;
     }
      @RequestMapping(method = RequestMethod.PUT)
-     public  Map<String, Object> updateGoal(@RequestBody Map goalInput){
-       // Goal goal  = goalService.updateGoal(goalInput);
+     public  Map<String, Object> updateGoal(@RequestBody Goal goalInput){
+        Goal goal  = goalService.updateGoal(goalInput);
         Map<String, Object> response = new LinkedHashMap<String, Object>();
         response.put("message", "Goal updated successfully");
-        //response.put("goal",goal);
+        response.put("goal",goal);
         return response;
 
      }
@@ -50,10 +48,13 @@ public class GoalController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{goalId}")
-    public Goal getGoalById(@PathVariable("goalId") Integer goalId) {
+    public Map<String, Object> getGoalById(@PathVariable("goalId") String goalId) {
         logger.info("getReportDetails");
-        //return goalService.getGoalById(goalId);
-        return null;
+        Goal goal = goalService.getGoalById(goalId);
+        Map<String, Object> response = new LinkedHashMap<String, Object>();
+        response.put("message", "Get Goal successfully");
+        response.put("goal",goal);
+        return response;
     }
     @RequestMapping(method = RequestMethod.DELETE, value = "/{goalId}")
     public Goal deleteGoalById(@PathVariable("goalId") Integer goalId) {
