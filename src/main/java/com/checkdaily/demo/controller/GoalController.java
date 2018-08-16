@@ -27,15 +27,15 @@ public class GoalController {
         response.put("goal",goal);
         return response;
     }
-     @RequestMapping(method = RequestMethod.PUT)
-     public  Map<String, Object> updateGoal(@RequestBody Goal goalInput){
-        Goal goal  = goalService.updateGoal(goalInput);
-        Map<String, Object> response = new LinkedHashMap<String, Object>();
-        response.put("message", "Goal updated successfully");
-        response.put("goal",goal);
-        return response;
-
-     }
+//     @RequestMapping(method = RequestMethod.PUT)
+//     public  void updateGoal(@RequestBody Goal goalInput){
+//        Goal goal  = goalService.updateGoal(goalInput);
+//        Map<String, Object> response = new LinkedHashMap<String, Object>();
+//        response.put("message", "Goal updated successfully");
+//        response.put("goal",goal);
+//        return response;
+//
+//     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/getAll")
     public Map<String, Object> getAllGoals() {

@@ -8,8 +8,8 @@ public class Goal {
     private String startTime;
     private String endTime;
     private String id;
-    private ArrayList<Task> taskList;
     private String userId;
+    private int times;
 
     public String getUserId() {
         return userId;
@@ -19,36 +19,31 @@ public class Goal {
         this.userId = userId;
     }
 
-    public Goal(){
-
-    }
-
-    public ArrayList<Task> getTaskList() {
-        return taskList;
-    }
-
     public void setId(String id) {
         this.id = id;
     }
 
-    public void setTaskList(ArrayList<Task> taskList) {
-        this.taskList = taskList;
+    public int getTimes() {
+        return times;
     }
 
-    public Goal(String userId,String name, String startTime, String endTime, ArrayList<Task> taskList){
+    public void setTimes(int times) {
+        this.times = times;
+    }
+
+    public Goal(String userId,String name, String startTime, String endTime , int times){
         this.userId = userId;
         this.name = name;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.taskList = taskList;
+
     }
 
-    public Goal(String userId, String name, String startTime, String endTime, ArrayList<Task> taskList, String id){
+    public Goal(String userId, String name, String startTime, String endTime, int times, String id){
         this.userId = userId;
         this.name = name;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.taskList = taskList;
         this.id = id;
     }
 
